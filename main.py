@@ -5,6 +5,7 @@ from engine import Engine
 from entity import Entity
 from game_map import GameMap
 from input_handlers import EventHandler
+from procgen import generate_dungeon
 
 
 def main() -> None:
@@ -26,7 +27,7 @@ def main() -> None:
     npc = Entity(center_x - 5, center_y, "@", (255, 255, 0))
     entities = {npc, player}
 
-    game_map = GameMap(map_width, map_height)
+    game_map = generate_dungeon(map_width, map_height)
 
     engine = Engine(
         entities=entities,
